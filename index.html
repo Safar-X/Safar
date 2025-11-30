@@ -1,251 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Safar | Luxury Travel</title>
-<style>
-:root {
-    --bg-color: #0a0a0a;
-    --card-bg: #141414;
-    --text-main: #f0f0f0;
-    --platinum: #e5e4e2;
-    --platinum-gradient: linear-gradient(135deg, #e5e4e2 0%, #b8b8b8 50%, #e5e4e2 100%);
-    --accent-red: #ff4d4d;
-}
-body {
-    font-family: 'Playfair Display', serif;
-    background-color: var(--bg-color);
-    color: var(--text-main);
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-}
-h1, h2, h3 { margin: 0; font-weight: 400; letter-spacing: 1px; }
-.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-.text-platinum { 
-    background: var(--platinum-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;
-}
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background: rgba(10, 10, 10, 0.95);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid #333;
-}
-.nav-logo img { height: 60px; }
-.nav-links a {
-    color: var(--platinum);
-    text-decoration: none;
-    margin-left: 30px;
-    font-family: sans-serif;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-.nav-links a:hover { color: var(--accent-red); }
-.hero {
-    position: relative;
-    height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background.jpg');
-    background-size: cover;
-    background-position: center;
-}
-.hero h1 { font-size: 4rem; margin-bottom: 10px; }
-.hero p { font-size: 1.5rem; font-style: italic; color: #ccc; }
-.cta-btn, .book-btn {
-    padding: 15px 40px;
-    background: var(--platinum-gradient);
-    border: none;
-    color: #000;
-    font-weight: bold;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    display: inline-block;
-    width: 100%;
-    box-sizing: border-box;
-}
-.cta-btn:hover, .book-btn:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 20px rgba(229, 228, 226, 0.4);
-}
-.section-title { text-align: center; font-size: 2.5rem; margin: 80px 0 40px; color: var(--platinum); }
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-.card {
-    background: var(--card-bg);
-    border: 1px solid #333;
-    transition: 0.3s;
-}
-.card:hover { border-color: var(--platinum); transform: translateY(-5px); }
-.card-img {
-    width: 100%;
-    height: 250px;
-    background-color: #333;
-    object-fit: cover;
-}
-.card-content { padding: 20px; }
-.card h3 { font-size: 1.8rem; margin-bottom: 10px; color: var(--platinum); }
-.price { color: var(--accent-red); font-size: 1.2rem; margin-bottom: 15px; display: block; font-family: sans-serif; }
-.form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #1a1a1a;
-    padding: 40px;
-    border: 1px solid #444;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-input, textarea, select {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 20px;
-    background: #0a0a0a;
-    border: 1px solid #333;
-    color: #fff;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
-input:focus, textarea:focus { outline: none; border-color: var(--platinum); }
-footer {
-    margin-top: 100px;
-    padding: 40px;
-    background: #000;
-    text-align: center;
-    border-top: 1px solid #333;
-    font-size: 0.9rem;
-    color: #666;
-}
-</style>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safar | Luxury Travel</title>
+  <style>
+    :root {
+      --bg-color: #0a0a0a;
+      --card-bg: #141414;
+      --text-main: #f0f0f0;
+      --platinum: #e5e4e2;
+      --platinum-gradient: linear-gradient(135deg, #e5e4e2 0%, #b8b8b8 50%, #e5e4e2 100%);
+      --accent-red: #ff4d4d;
+    }
+    body {
+      font-family: 'Playfair Display', serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3 { margin: 0; font-weight: 400; letter-spacing: 1px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+    .text-platinum { 
+      background: var(--platinum-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(10, 10, 10, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #333;
+    }
+    .nav-logo img { height: 60px; }
+    .nav-links a {
+      color: var(--platinum);
+      text-decoration: none;
+      margin-left: 30px;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .nav-links a:hover { color: var(--accent-red); }
+    .hero {
+      position: relative;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+    .hero h1 { font-size: 4rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.5rem; font-style: italic; color: #ccc; }
+    .cta-btn, .book-btn {
+      padding: 15px 40px;
+      background: var(--platinum-gradient);
+      border: none;
+      color: #000;
+      font-weight: bold;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .cta-btn:hover, .book-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(229, 228, 226, 0.4);
+    }
+    .section-title { text-align: center; font-size: 2.5rem; margin: 80px 0 40px; color: var(--platinum); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid #333;
+      transition: 0.3s;
+    }
+    .card:hover { border-color: var(--platinum); transform: translateY(-5px); }
+    .card-img {
+      width: 100%;
+      height: 250px;
+      background-color: #333;
+      object-fit: cover;
+    }
+    .card-content { padding: 20px; }
+    .card h3 { font-size: 1.8rem; margin-bottom: 10px; color: var(--platinum); }
+    .price { color: var(--accent-red); font-size: 1.2rem; margin-bottom: 15px; display: block; font-family: sans-serif; }
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #1a1a1a;
+      padding: 40px;
+      border: 1px solid #444;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 20px;
+      background: #0a0a0a;
+      border: 1px solid #333;
+      color: #fff;
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+    input:focus, textarea:focus { outline: none; border-color: var(--platinum); }
+    footer {
+      margin-top: 100px;
+      padding: 40px;
+      background: #000;
+      text-align: center;
+      border-top: 1px solid #333;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<nav>
+  <nav>
     <div class="nav-logo">
-        <img src="Safar_20251129_190947_0000.png" alt="Safar Logo">
+      <img src="Safar_20251129_190947_0000.png" alt="Safar Logo">
     </div>
     <div class="nav-links">
-        <a href="#destinations">Destinations</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact">Inquire</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Inquire</a>
     </div>
-</nav>
+  </nav>
 
-<header class="hero">
+  <header class="hero">
     <h1 class="text-platinum">Safar</h1>
     <p>That never let you suffer.</p>
     <a href="#destinations"><button class="cta-btn">Start Your Journey</button></a>
-</header>
+  </header>
 
-<section id="destinations" class="container">
+  <section id="destinations" class="container">
     <h2 class="section-title">Exclusive Destinations</h2>
     <div class="grid">
-        <div class="card">
-            <img src="kerala.jpg" alt="Kerala" class="card-img">
-            <div class="card-content">
-                <h3>Kerala Backwaters</h3>
-                <span class="price">Starting at ₹25,000 / person</span>
-                <p>Experience the serenity of God's own country with our premium houseboat packages.</p>
-                <a href="#contact"><button class="book-btn">Request Quote</button></a>
-            </div>
+      <div class="card">
+        <img src="kerala.jpg" alt="Kerala" class="card-img">
+        <div class="card-content">
+          <h3>Kerala Backwaters</h3>
+          <span class="price">Starting at ₹25,000 / person</span>
+          <p>Experience the serenity of God's own country with our premium houseboat packages.</p>
+          <a href="#contact"><button class="book-btn">Request Quote</button></a>
         </div>
-        <div class="card">
-            <img src="dubai.jpg" alt="Dubai" class="card-img">
-            <div class="card-content">
-                <h3>Dubai Skyline</h3>
-                <span class="price">Starting at ₹65,000 / person</span>
-                <p>Luxury shopping, ultramodern architecture, and lively nightlife scenes.</p>
-                <a href="#contact"><button class="book-btn">Request Quote</button></a>
-            </div>
+      </div>
+      <div class="card">
+        <img src="dubai.jpg" alt="Dubai" class="card-img">
+        <div class="card-content">
+          <h3>Dubai Skyline</h3>
+          <span class="price">Starting at ₹65,000 / person</span>
+          <p>Luxury shopping, ultramodern architecture, and lively nightlife scenes.</p>
+          <a href="#contact"><button class="book-btn">Request Quote</button></a>
         </div>
-        <div class="card">
-            <img src="manali.jpg" alt="Manali" class="card-img">
-            <div class="card-content">
-                <h3>Manali Peaks</h3>
-                <span class="price">Starting at ₹18,000 / person</span>
-                <p>Snow-capped mountains and cozy cottages for the perfect winter getaway.</p>
-                <a href="#contact"><button class="book-btn">Request Quote</button></a>
-            </div>
+      </div>
+      <div class="card">
+        <img src="manali.jpg" alt="Manali" class="card-img">
+        <div class="card-content">
+          <h3>Manali Peaks</h3>
+          <span class="price">Starting at ₹18,000 / person</span>
+          <p>Snow-capped mountains and cozy cottages for the perfect winter getaway.</p>
+          <a href="#contact"><button class="book-btn">Request Quote</button></a>
         </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- Booking Form -->
-<section id="contact" class="container">
+  <!-- Booking Form -->
+  <section id="contact" class="container">
     <h2 class="section-title">Invitation & Booking</h2>
     <div class="form-container">
-        <form action="https://script.google.com/macros/s/AKfycbwHCGLQY5SCht_t1POlXwiWF_HO3e3VACYvirgg21WX0_m3sX0HAOK9v_i7QMKNZwHQtw/exec" method="post" target="_top">
-            <input type="hidden" name="Form Type" value="Booking Inquiry">
-
-            <label>Name</label>
-            <input type="text" name="Name" placeholder="Your Full Name">
-
-            <label>Phone Number</label>
-            <input type="tel" name="Phone" placeholder="+91 XXXXX XXXXX">
-
-            <label>Destination Interest</label>
-            <select name="Destination">
-                <option value="Kerala">Kerala</option>
-                <option value="Dubai">Dubai</option>
-                <option value="Manali">Manali</option>
-                <option value="Other">Other Custom Plan</option>
-            </select>
-
-            <label>Travel Dates</label>
-            <input type="date" name="Date">
-
-            <input type="submit" value="Send Invitation" class="cta-btn">
-        </form>
+      <form action="https://script.google.com/macros/s/AKfycbwHCGLQY5SCht_t1POlXwiWF_HO3e3VACYvirgg21WX0_m3sX0HAOK9v_i7QMKNZwHQtw/exec" method="POST" target="_blank">
+        <input type="hidden" name="Form Type" value="Booking Inquiry">
+        <label>Name</label>
+        <input type="text" name="Name" placeholder="Your Full Name" required>
+        <label>Phone Number</label>
+        <input type="tel" name="Phone" placeholder="+91 XXXXX XXXXX" required>
+        <label>Destination Interest</label>
+        <select name="Destination">
+          <option value="Kerala">Kerala</option>
+          <option value="Dubai">Dubai</option>
+          <option value="Manali">Manali</option>
+          <option value="Other">Other Custom Plan</option>
+        </select>
+        <label>Travel Dates</label>
+        <input type="date" name="Date" required>
+        <input type="submit" value="Send Invitation" class="cta-btn">
+      </form>
     </div>
-</section>
+  </section>
 
-<!-- Review Form -->
-<section id="reviews" class="container">
+  <!-- Review Form -->
+  <section id="reviews" class="container">
     <h2 class="section-title">Share Your Safar Experience</h2>
     <div class="form-container">
-        <form action="https://script.google.com/macros/s/AKfycbwHCGLQY5SCht_t1POlXwiWF_HO3e3VACYvirgg21WX0_m3sX0HAOK9v_i7QMKNZwHQtw/exec" method="post" target="_top">
-            <input type="hidden" name="Form Type" value="Client Review">
-
-            <label>Your Name</label>
-            <input type="text" name="Reviewer Name">
-
-            <label>Your Experience</label>
-            <textarea name="Review" rows="4" placeholder="How was your trip?"></textarea>
-
-            <label>Rating</label>
-            <select name="Rating">
-                <option value="5 Stars">⭐⭐⭐⭐⭐ Platinum</option>
-                <option value="4 Stars">⭐⭐⭐⭐ Gold</option>
-                <option value="3 Stars">⭐⭐⭐ Silver</option>
-            </select>
-
-            <input type="submit" value="Submit Review" class="book-btn">
-        </form>
+      <form action="https://script.google.com/macros/s/AKfycbwHCGLQY5SCht_t1POlXwiWF_HO3e3VACYvirgg21WX0_m3sX0HAOK9v_i7QMKNZwHQtw/exec" method="POST" target="_blank">
+        <input type="hidden" name="Form Type" value="Client Review">
+        <label>Your Name</label>
+        <input type="text" name="Reviewer Name" required>
+        <label>Your Experience</label>
+        <textarea name="Review" rows="4" placeholder="How was your trip?" required></textarea>
+        <label>Rating</label>
+        <select name="Rating">
+          <option value="5 Stars">⭐⭐⭐⭐⭐ Platinum</option>
+          <option value="4 Stars">⭐⭐⭐⭐ Gold</option>
+          <option value="3 Stars">⭐⭐⭐ Silver</option>
+        </select>
+        <input type="submit" value="Submit Review" class="book-btn">
+      </form>
     </div>
-</section>
+  </section>
 
-<footer>
+  <footer>
     <p>© 2025 Safar Travel Agency. All Rights Reserved.</p>
     <p>Luxury Travel Partner.</p>
-</footer>
+  </footer>
 
 </body>
 </html>
