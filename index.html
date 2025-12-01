@@ -4,239 +4,372 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Safar | Luxury Travel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #0a0a0a;
-      --card-bg: #141414;
-      --text-main: #f0f0f0;
-      --platinum: #e5e4e2;
-      --platinum-gradient: linear-gradient(135deg, #e5e4e2 0%, #b8b8b8 50%, #e5e4e2 100%);
-      --accent-red: #ff4d4d;
+      --bg-color: #ffffff;
+      --text-main: #333333;
+      --text-light: #666666;
+      --platinum: #E5E4E2;
+      --platinum-dark: #b0b0b0;
+      --platinum-gradient: linear-gradient(135deg, #f5f5f5 0%, #E5E4E2 50%, #dcdcdc 100%);
+      --accent-dark: #1a1a1a;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
+
     body {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Montserrat', sans-serif;
       background-color: var(--bg-color);
       color: var(--text-main);
       margin: 0;
       padding: 0;
       overflow-x: hidden;
-      scroll-behavior: smooth;
     }
-    h1, h2, h3 { margin: 0; font-weight: 400; letter-spacing: 1px; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-    .text-platinum { 
-      background: var(--platinum-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: bold;
+
+    h1, h2, h3 { 
+      font-family: 'Playfair Display', serif; 
+      margin: 0; 
+      font-weight: 600; 
     }
+
+    /* --- Navigation --- */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
-      background: rgba(10, 10, 10, 0.95);
+      padding: 15px 5%;
+      background: rgba(255, 255, 255, 0.98);
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid #333;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
-    .nav-logo img { height: 60px; }
-    .nav-links a {
-      color: var(--platinum);
-      text-decoration: none;
-      margin-left: 30px;
-      font-family: sans-serif;
-      font-size: 0.9rem;
-      text-transform: uppercase;
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: bold;
       letter-spacing: 2px;
+      color: var(--accent-dark);
+      cursor: pointer;
     }
-    .nav-links a:hover { color: var(--accent-red); }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: #999; 
+      border-bottom: 1px solid #999;
+    }
+
+    /* --- Page Visibility Logic --- */
+    .page-section {
+      display: none; /* Hidden by default */
+      animation: fadeIn 0.8s ease;
+    }
+    
+    .page-section.active-section {
+      display: block; /* Show only active */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- Hero Section --- */
     .hero {
-      position: relative;
       height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('background.jpg');
+      /* Use a high quality travel image here */
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&auto=format&fit=crop&w=2021&q=80');
       background-size: cover;
       background-position: center;
+      color: white;
     }
-    .hero h1 { font-size: 4rem; margin-bottom: 10px; }
-    .hero p { font-size: 1.5rem; font-style: italic; color: #ccc; }
-    .cta-btn, .book-btn {
-      padding: 15px 40px;
-      background: var(--platinum-gradient);
+
+    .hero h1 { font-size: 4.5rem; letter-spacing: 3px; margin-bottom: 20px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    .hero p { font-size: 1.4rem; font-weight: 300; letter-spacing: 1px; margin-bottom: 40px; }
+
+    .cta-btn {
+      padding: 18px 50px;
+      background: white;
+      color: var(--accent-dark);
       border: none;
-      color: #000;
-      font-weight: bold;
-      font-size: 1rem;
-      text-transform: uppercase;
+      font-size: 0.9rem;
       letter-spacing: 2px;
+      text-transform: uppercase;
       cursor: pointer;
-      display: inline-block;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .cta-btn:hover, .book-btn:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 20px rgba(229, 228, 226, 0.4);
-    }
-    .section-title { text-align: center; font-size: 2.5rem; margin: 80px 0 40px; color: var(--platinum); }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid #333;
       transition: 0.3s;
     }
-    .card:hover { border-color: var(--platinum); transform: translateY(-5px); }
-    .card-img {
-      width: 100%;
-      height: 250px;
-      background-color: #333;
-      object-fit: cover;
+    .cta-btn:hover { background: var(--platinum); transform: scale(1.05); }
+
+    /* --- Common Sections --- */
+    .container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+    .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 60px; color: var(--accent-dark); }
+    .section-subtitle { display: block; text-align: center; font-size: 1rem; color: var(--text-light); margin-top: -50px; margin-bottom: 60px; font-style: italic; }
+
+    /* --- Grid Layouts --- */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+
+    /* --- Destination Cards --- */
+    .card {
+      background: white;
+      box-shadow: var(--shadow);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: 0.4s;
     }
-    .card-content { padding: 20px; }
-    .card h3 { font-size: 1.8rem; margin-bottom: 10px; color: var(--platinum); }
-    .price { color: var(--accent-red); font-size: 1.2rem; margin-bottom: 15px; display: block; font-family: sans-serif; }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
+    .card-img { width: 100%; height: 300px; object-fit: cover; }
+    .card-content { padding: 30px; text-align: center; }
+    .price { display: block; color: var(--text-light); margin: 15px 0; font-size: 0.9rem; }
+    
+    /* --- Crew Cards --- */
+    .crew-card { text-align: center; background: white; padding: 40px 20px; border: 1px solid #eee; transition: 0.3s; }
+    .crew-card:hover { border-color: var(--platinum-dark); }
+    .crew-img { 
+      width: 150px; height: 150px; 
+      border-radius: 50%; 
+      object-fit: cover; 
+      margin-bottom: 20px; 
+      border: 3px solid var(--platinum); 
+    }
+    .designation { color: #888; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; display: block; margin-top: 5px; }
+
+    /* --- About Text --- */
+    .about-text { max-width: 800px; margin: 0 auto; text-align: center; line-height: 1.8; font-size: 1.1rem; color: var(--text-light); }
+
+    /* --- Forms --- */
     .form-container {
-      max-width: 600px;
-      margin: 0 auto;
-      background: #1a1a1a;
-      padding: 40px;
-      border: 1px solid #444;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      max-width: 600px; margin: 0 auto;
+      background: white; padding: 50px;
+      box-shadow: var(--shadow); border: 1px solid #f0f0f0;
     }
-    input, textarea, select {
-      width: 100%;
-      padding: 15px;
-      margin-bottom: 20px;
-      background: #0a0a0a;
-      border: 1px solid #333;
-      color: #fff;
-      box-sizing: border-box;
-      font-family: sans-serif;
+    input, select, textarea {
+      width: 100%; padding: 15px; margin-bottom: 20px;
+      border: 1px solid #ddd; background: #fafafa;
+      font-family: 'Montserrat', sans-serif; box-sizing: border-box;
     }
-    input:focus, textarea:focus { outline: none; border-color: var(--platinum); }
+    input:focus, textarea:focus { outline: none; border-color: #999; background: white; }
+    
+    .submit-btn {
+      width: 100%; padding: 15px;
+      background: var(--accent-dark); color: white;
+      border: none; text-transform: uppercase; letter-spacing: 2px;
+      cursor: pointer;
+    }
+    .submit-btn:hover { background: #444; }
+
+    /* --- Footer --- */
     footer {
-      margin-top: 100px;
-      padding: 40px;
-      background: #000;
-      text-align: center;
-      border-top: 1px solid #333;
-      font-size: 0.9rem;
-      color: #666;
+      background: var(--accent-dark); color: white;
+      text-align: center; padding: 50px 20px; margin-top: 80px;
     }
+    footer p { color: #888; font-size: 0.8rem; letter-spacing: 1px; }
+
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <nav>
-    <div class="nav-logo">
-      <img src="Safar_20251129_190947_0000.png" alt="Safar Logo">
-    </div>
+    <div class="nav-logo" onclick="showPage('home')">SAFAR.</div>
     <div class="nav-links">
-      <a href="#destinations">Destinations</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#contact">Inquire</a>
+      <a onclick="showPage('home')" id="nav-home" class="active">Home</a>
+      <a onclick="showPage('about')" id="nav-about">About</a>
+      <a onclick="showPage('crew')" id="nav-crew">The Crew</a>
+      <a onclick="showPage('reviews')" id="nav-reviews">Reviews</a>
     </div>
   </nav>
 
-  <header class="hero">
-    <h1 class="text-platinum">Safar</h1>
-    <p>That never let you suffer.</p>
-    <a href="#destinations"><button class="cta-btn">Start Your Journey</button></a>
-  </header>
+  <div id="home" class="page-section active-section">
+    <header class="hero">
+      <h1>The World Awaits</h1>
+      <p>Curated luxury experiences that never let you suffer.</p>
+      <button class="cta-btn" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">Plan Your Journey</button>
+    </header>
 
-  <section id="destinations" class="container">
-    <h2 class="section-title">Exclusive Destinations</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="kerala.jpg" alt="Kerala" class="card-img">
-        <div class="card-content">
-          <h3>Kerala Backwaters</h3>
-          <span class="price">Starting at ₹25,000 / person</span>
-          <p>Experience the serenity of God's own country with our premium houseboat packages.</p>
-          <a href="#contact"><button class="book-btn">Request Quote</button></a>
+    <section class="container">
+      <h2 class="section-title">Curated Destinations</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="kerala.jpg" alt="Kerala" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1000&auto=format&fit=crop'">
+          <div class="card-content">
+            <h3>Kerala</h3>
+            <span class="price">From ₹25,000</span>
+            <p>Backwaters and serenity.</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <img src="paris.jpg" alt="Paris" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1000&auto=format&fit=crop'">
+          <div class="card-content">
+            <h3>Paris</h3>
+            <span class="price">From ₹1,20,000</span>
+            <p>The city of lights and love.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="maldives.jpg" alt="Maldives" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1000&auto=format&fit=crop'">
+          <div class="card-content">
+            <h3>Maldives</h3>
+            <span class="price">From ₹85,000</span>
+            <p>Overwater luxury villas.</p>
+          </div>
         </div>
       </div>
-      <div class="card">
-        <img src="dubai.jpg" alt="Dubai" class="card-img">
-        <div class="card-content">
-          <h3>Dubai Skyline</h3>
-          <span class="price">Starting at ₹65,000 / person</span>
-          <p>Luxury shopping, ultramodern architecture, and lively nightlife scenes.</p>
-          <a href="#contact"><button class="book-btn">Request Quote</button></a>
-        </div>
+    </section>
+
+    <section id="booking" class="container" style="background: #fafafa;">
+      <h2 class="section-title">Begin Your Journey</h2>
+      <div class="form-container">
+        <form action="https://script.google.com/macros/s/AKfycbwHCGLQY5SCht_t1POlXwiWF_HO3e3VACYvirgg21WX0_m3sX0HAOK9v_i7QMKNZwHQtw/exec" method="POST" target="_blank">
+          <input type="hidden" name="Form Type" value="Booking Inquiry">
+          
+          <label>Full Name</label>
+          <input type="text" name="Name" placeholder="Enter your name" required>
+          
+          <label>Phone Number</label>
+          <input type="tel" name="Phone" placeholder="+91..." required>
+          
+          <label>Preferred Destination</label>
+          <select name="Destination">
+            <option value="Kerala">Kerala, India</option>
+            <option value="Manali">Manali, India</option>
+            <option value="Dubai">Dubai, UAE</option>
+            <option value="Paris">Paris, France</option>
+            <option value="Maldives">Maldives</option>
+            <option value="Switzerland">Switzerland</option>
+            <option value="Custom">Custom Inquiry</option>
+          </select>
+          
+          <label>Travel Date</label>
+          <input type="date" name="Date" required>
+          
+          <button type="submit" class="submit-btn">Request Invitation</button>
+        </form>
       </div>
-      <div class="card">
-        <img src="manali.jpg" alt="Manali" class="card-img">
-        <div class="card-content">
-          <h3>Manali Peaks</h3>
-          <span class="price">Starting at ₹18,000 / person</span>
-          <p>Snow-capped mountains and cozy cottages for the perfect winter getaway.</p>
-          <a href="#contact"><button class="book-btn">Request Quote</button></a>
+    </section>
+  </div>
+
+  <div id="about" class="page-section">
+    <div class="container" style="padding-top: 150px;">
+      <h2 class="section-title">About Safar</h2>
+      <p class="about-text">
+        Established in 2025, Safar was born from a simple belief: Travel should never be a struggle. 
+        It should be seamless, elegant, and transformative.
+        <br><br>
+        We specialize in curating platinum-standard experiences for the discerning traveler. 
+        From the snowy peaks of the Himalayas to the pristine beaches of the Maldives, 
+        our team ensures every detail is handled with precision.
+      </p>
+    </div>
+  </div>
+
+  <div id="crew" class="page-section">
+    <div class="container" style="padding-top: 150px;">
+      <h2 class="section-title">The Founders</h2>
+      <span class="section-subtitle">The visionaries behind your journey</span>
+      
+      <div class="grid">
+        <div class="crew-card">
+          <img src="sanskriti.jpg" alt="Sanskriti" class="crew-img" onerror="this.src='https://via.placeholder.com/150/e5e4e2/333?text=Sanskriti'">
+          <h3>Sanskriti</h3>
+          <span class="designation">Founder</span>
+        </div>
+
+        <div class="crew-card">
+          <img src="sneha.jpg" alt="Sneha" class="crew-img" onerror="this.src='https://via.placeholder.com/150/e5e4e2/333?text=Sneha'">
+          <h3>Sneha</h3>
+          <span class="designation">Founder</span>
+        </div>
+
+        <div class="crew-card">
+          <img src="sakshi.jpg" alt="Sakshi" class="crew-img" onerror="this.src='https://via.placeholder.com/150/e5e4e2/333?text=Sakshi'">
+          <h3>Sakshi</h3>
+          <span class="designation">Founder</span>
+        </div>
+
+        <div class="crew-card">
+          <img src="kanchan.jpg" alt="Kanchan" class="crew-img" onerror="this.src='https://via.placeholder.com/150/e5e4e2/333?text=Kanchan'">
+          <h3>Kanchan</h3>
+          <span class="designation">Founder</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Booking Form -->
-  <section id="contact" class="container">
-    <h2 class="section-title">Invitation & Booking</h2>
-    <div class="form-container">
-      <form action="https://script.google.com/macros/s/AKfycbwHCGLQY5SCht_t1POlXwiWF_HO3e3VACYvirgg21WX0_m3sX0HAOK9v_i7QMKNZwHQtw/exec" method="POST" target="_blank">
-        <input type="hidden" name="Form Type" value="Booking Inquiry">
-        <label>Name</label>
-        <input type="text" name="Name" placeholder="Your Full Name" required>
-        <label>Phone Number</label>
-        <input type="tel" name="Phone" placeholder="+91 XXXXX XXXXX" required>
-        <label>Destination Interest</label>
-        <select name="Destination">
-          <option value="Kerala">Kerala</option>
-          <option value="Dubai">Dubai</option>
-          <option value="Manali">Manali</option>
-          <option value="Other">Other Custom Plan</option>
-        </select>
-        <label>Travel Dates</label>
-        <input type="date" name="Date" required>
-        <input type="submit" value="Send Invitation" class="cta-btn">
-      </form>
-    </div>
-  </section>
+  <div id="reviews" class="page-section">
+    <div class="container" style="padding-top: 150px;">
+      <h2 class="section-title">Client Experiences</h2>
+      
+      <div class="form-container">
+        <form action="https://script.google.com/macros/s/AKfycbwHCGLQY5SCht_t1POlXwiWF_HO3e3VACYvirgg21WX0_m3sX0HAOK9v_i7QMKNZwHQtw/exec" method="POST" target="_blank">
+          <input type="hidden" name="Form Type" value="Client Review">
+          
+          <label>Your Name</label>
+          <input type="text" name="Reviewer Name" placeholder="Who are you?" required>
+          
+          <label>How was your experience?</label>
+          <textarea name="Review" rows="5" placeholder="Tell us about your trip..." required></textarea>
+          
+          <label>Rate Us</label>
+          <select name="Rating">
+            <option value="5 Stars">⭐⭐⭐⭐⭐ Platinum Service</option>
+            <option value="4 Stars">⭐⭐⭐⭐ Gold Service</option>
+            <option value="3 Stars">⭐⭐⭐ Silver Service</option>
+          </select>
+          
+          <button type="submit" class="submit-btn">Submit Review</button>
+        </form>
+      </div>
 
-  <!-- Review Form -->
-  <section id="reviews" class="container">
-    <h2 class="section-title">Share Your Safar Experience</h2>
-    <div class="form-container">
-      <form action="https://script.google.com/macros/s/AKfycbwHCGLQY5SCht_t1POlXwiWF_HO3e3VACYvirgg21WX0_m3sX0HAOK9v_i7QMKNZwHQtw/exec" method="POST" target="_blank">
-        <input type="hidden" name="Form Type" value="Client Review">
-        <label>Your Name</label>
-        <input type="text" name="Reviewer Name" required>
-        <label>Your Experience</label>
-        <textarea name="Review" rows="4" placeholder="How was your trip?" required></textarea>
-        <label>Rating</label>
-        <select name="Rating">
-          <option value="5 Stars">⭐⭐⭐⭐⭐ Platinum</option>
-          <option value="4 Stars">⭐⭐⭐⭐ Gold</option>
-          <option value="3 Stars">⭐⭐⭐ Silver</option>
-        </select>
-        <input type="submit" value="Submit Review" class="book-btn">
-      </form>
     </div>
-  </section>
+  </div>
 
   <footer>
-    <p>© 2025 Safar Travel Agency. All Rights Reserved.</p>
-    <p>Luxury Travel Partner.</p>
+    <p>&copy; 2025 Safar Luxury Travel. All Rights Reserved.</p>
   </footer>
 
+  <script>
+    function showPage(pageId) {
+      // 1. Hide all pages
+      const pages = document.querySelectorAll('.page-section');
+      pages.forEach(page => {
+        page.classList.remove('active-section');
+      });
+
+      // 2. Show the target page
+      const target = document.getElementById(pageId);
+      if (target) {
+        target.classList.add('active-section');
+        window.scrollTo(0,0);
+      }
+
+      // 3. Update Nav Styling
+      const navLinks = document.querySelectorAll('.nav-links a');
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+      });
+      document.getElementById('nav-' + pageId).classList.add('active');
+    }
+  </script>
 </body>
 </html>
