@@ -100,7 +100,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* --- Hero Section (UPDATED FOR CHANGING IMAGES) --- */
+    /* --- Hero Section with Changing Backgrounds --- */
     .hero {
       position: relative;
       height: 90vh;
@@ -112,13 +112,9 @@
       color: white;
       overflow: hidden;
       padding: 0 20px;
-      
-      /* Initial Background settings */
       background-size: cover;
       background-position: center;
-      /* Dark overlay gradient for text readability */
       background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)); 
-      /* The animation that changes the images over 24 seconds */
       animation: heroSlide 24s infinite;
     }
 
@@ -268,7 +264,6 @@
     }
 
     /* ================= ANIMATION KEYFRAMES ================= */
-    /* Cycles through 4 different images */
     @keyframes heroSlide {
         0%, 20% {
             background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070');
@@ -332,7 +327,7 @@
         </div>
         
         <div class="card">
-          <img src="paris.jpg" alt="Paris" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1000'">
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1000" alt="Paris" class="card-img">
           <div class="card-content">
             <div>
               <h3>Paris</h3>
@@ -344,7 +339,7 @@
         </div>
 
         <div class="card">
-          <img src="maldives.jpg" alt="Maldives" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1000'">
+          <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=1000" alt="Maldives" class="card-img">
           <div class="card-content">
             <div>
               <h3>Maldives</h3>
@@ -356,7 +351,7 @@
         </div>
 
         <div class="card">
-          <img src="swiss.jpg" alt="Switzerland" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=1000'">
+          <img src="https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?q=80&w=1000" alt="Switzerland" class="card-img">
           <div class="card-content">
             <div>
               <h3>Switzerland</h3>
@@ -368,7 +363,7 @@
         </div>
 
         <div class="card">
-          <img src="bali.jpg" alt="Bali" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1000'">
+          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1000" alt="Bali" class="card-img">
           <div class="card-content">
             <div>
               <h3>Bali</h3>
@@ -380,7 +375,7 @@
         </div>
 
         <div class="card">
-          <img src="nyc.jpg" alt="New York" class="card-img" onerror="this.src='https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=1000'">
+          <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=1000" alt="New York" class="card-img">
           <div class="card-content">
             <div>
               <h3>New York</h3>
