@@ -48,7 +48,7 @@
     }
 
     .nav-logo {
-      z-index: 1001; /* Keep logo above mobile menu */
+      z-index: 1001;
       cursor: pointer;
     }
 
@@ -57,7 +57,6 @@
       display: block;
     }
 
-    /* Desktop Nav Links */
     .nav-links {
       display: flex;
       gap: 30px;
@@ -78,7 +77,6 @@
       color: var(--gold); 
     }
 
-    /* Hamburger Icon (Hidden on Desktop) */
     .hamburger {
       display: none;
       font-size: 1.8rem;
@@ -102,10 +100,10 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* --- Hero Section --- */
+    /* --- Hero Section (UPDATED FOR CHANGING IMAGES) --- */
     .hero {
       position: relative;
-      height: 90vh; /* Full viewport height */
+      height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -114,17 +112,14 @@
       color: white;
       overflow: hidden;
       padding: 0 20px;
-    }
-
-    .video-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      filter: brightness(0.5);
+      
+      /* Initial Background settings */
+      background-size: cover;
+      background-position: center;
+      /* Dark overlay gradient for text readability */
+      background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)); 
+      /* The animation that changes the images over 24 seconds */
+      animation: heroSlide 24s infinite;
     }
 
     .hero h1 { 
@@ -165,7 +160,6 @@
     /* --- Grids --- */
     .grid { 
       display: grid; 
-      /* Auto-fit with min of 280px ensures it fits on small phones */
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
       gap: 30px; 
     }
@@ -183,7 +177,7 @@
     .card-img { width: 100%; height: 250px; object-fit: cover; }
     .card-content { padding: 25px; text-align: center; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
     .book-now-btn {
-      padding: 12px 20px; /* Larger touch target */
+      padding: 12px 20px;
       background-color: var(--accent-dark);
       color: white;
       border: none;
@@ -199,14 +193,10 @@
     .crew-grid {
       display: grid;
       gap: 30px;
-      grid-template-columns: 1fr; /* Default Mobile: 1 Column */
+      grid-template-columns: 1fr; 
     }
-    @media (min-width: 768px) {
-      .crew-grid { grid-template-columns: repeat(2, 1fr); } /* Tablet: 2 Columns */
-    }
-    @media (min-width: 1024px) {
-      .crew-grid { grid-template-columns: repeat(4, 1fr); } /* Desktop: 4 Columns (Single Row) */
-    }
+    @media (min-width: 768px) { .crew-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .crew-grid { grid-template-columns: repeat(4, 1fr); } }
 
     .crew-card { 
       text-align: center; 
@@ -234,7 +224,7 @@
       width: 100%; padding: 15px; margin-bottom: 20px;
       border: 1px solid #ddd; background: #fafafa;
       font-family: 'Montserrat', sans-serif; box-sizing: border-box;
-      font-size: 16px; /* Prevents iOS zoom on focus */
+      font-size: 16px;
     }
     .submit-btn {
       width: 100%; padding: 15px;
@@ -251,47 +241,50 @@
       text-align: center; padding: 50px 20px; margin-top: 80px;
     }
 
-    /* =========================================
-       MOBILE MEDIA QUERIES
-       ========================================= */
+    /* ================= MOBILE MEDIA QUERIES ================= */
     @media (max-width: 768px) {
-      /* Navigation */
       .hamburger { display: block; }
       
       .nav-links {
         position: fixed;
-        top: 0;
-        right: -100%; /* Hidden off-screen */
-        height: 100vh;
-        width: 70%;
+        top: 0; right: -100%; height: 100vh; width: 70%;
         background-color: white;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: center; align-items: center;
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
         transition: 0.4s ease;
       }
       
-      .nav-links.nav-active {
-        right: 0; /* Slide in */
-      }
+      .nav-links.nav-active { right: 0; }
+      .nav-links a { font-size: 1.2rem; margin: 20px 0; }
 
-      .nav-links a {
-        font-size: 1.2rem;
-        margin: 20px 0;
-      }
-
-      /* Hero Typography */
       .hero h1 { font-size: 2.5rem; }
       .hero p { font-size: 1.1rem; }
       .cta-btn { padding: 15px 30px; width: 100%; }
 
-      /* Section Spacing */
       .container { padding: 50px 20px; }
       .section-title { font-size: 2rem; margin-bottom: 40px; }
-      
-      /* Form Layout */
-      .form-container { padding: 30px 20px; } /* Less padding on mobile */
+      .form-container { padding: 30px 20px; }
+    }
+
+    /* ================= ANIMATION KEYFRAMES ================= */
+    /* Cycles through 4 different images */
+    @keyframes heroSlide {
+        0%, 20% {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070');
+        }
+        25%, 45% {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2070');
+        }
+        50%, 70% {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070');
+        }
+        75%, 95% {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2070');
+        }
+        100% {
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070');
+        }
     }
   </style>
 </head>
@@ -317,11 +310,6 @@
 
   <div id="home" class="page-section active-section">
     <header class="hero">
-      <video class="video-bg" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=2070">
-        <source src="https://videos.pexels.com/video-files/2519660/2519660-hd_1920_1080_24fps.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-
       <h1>Safar</h1>
       <p>"Safar that never let you Suffer"</p>
       <button class="cta-btn" onclick="document.getElementById('booking').scrollIntoView({behavior: 'smooth'})">Start Your Journey</button>
@@ -537,17 +525,14 @@
       navLinks.forEach(link => link.classList.remove('active'));
       document.getElementById('nav-' + pageId).classList.add('active');
 
-      // Close Mobile Menu on Click
       closeMenu();
     }
 
-    // Toggle Mobile Menu
     function toggleMenu() {
       const nav = document.getElementById('navLinks');
       nav.classList.toggle('nav-active');
     }
 
-    // Close Mobile Menu (Helper)
     function closeMenu() {
       const nav = document.getElementById('navLinks');
       if (nav.classList.contains('nav-active')) {
@@ -559,7 +544,6 @@
     function selectDestination(destName) {
       const select = document.getElementById('dest-select');
       const formSection = document.getElementById('booking');
-      
       select.value = destName;
       formSection.scrollIntoView({behavior: 'smooth'});
     }
